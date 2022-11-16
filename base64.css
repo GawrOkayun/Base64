@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root{
+    --corprincipal: #ffc7f9;
+    --corsecundaria: #caf9ff;
+    --cortitulo: #7c0160
+    }
+body{
+    background: var(--corsecundaria);
+    background: #004eb4;
+    position: relative;
+   text-align: center;
+    align-items: center;
+
+}
+label{
+  font-family: sans-serif;
+  color: black;
+  transform: scale(1.5);
+  position: relative;
+  text-align: center;
+  align-items: center;
+}
+textarea{
+  background: transparent;
+  outline: none;
+  border-radius: 5px;
+  text-align: center;
+  transform: scale(1.5);
+  margin-bottom: 70px;
+  position: relative;
+  top: 40px;
+  cursor: pointer;
+  align-items: center;
+
+}
+
+  .icons ion-icon{
+    width: 100px;
+    height: 100px;
+    color: var(--cortitulo);
+    text-align: center;
+    align-items: center;
+  }
+.icons ion-icon:hover{
+    color: var(--corsecundaria);
+    text-align: center;
+    align-items: center;
+  } 

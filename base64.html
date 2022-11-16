@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificar e codificar</title>
+     <link rel="stylesheet" href="base64.css">
+    <meta http-equiv="expires" content="0"><!-- Never caches the page -->
+    <link rel="icon" type="imagem/png" href="/ProjetoIndividual1M2/img/1792163.png" />
+    </head>
+     <body>
+        <main class="main container" > 
+            <header class="cabecalho">
+            <img src="img/base64img.jpg" alt="Logo">
+            <h1>base64</h1>
+        </header>
+           <div class="container - input" >
+            <div class="input">
+                <textarea id="input-texto" placeholder="Base64 e Cesar" ></textarea>
+                <p> não utilizar acento</p>
+            <textarea type='text' id='encryptedInput-1' placeholder="o texto criptografado vai aparece aqui"></textarea>
+                 </div>
+            <button id='encrypt-btn'>criptografar</button>
+            <button id='copyToClipBoard'>Copiar texto</button>
+            <div id='container-1'>
+                <h1>Cifra de César</h1>
+                 <img id= 'cesar' src='https://apprecs.org/gp/images/app-icons/300/e1/ba.mk.caesarcipher.jpg'> 
+                 <div>
+              <input type='number' id='shiftInput' min='0' max='25' placeholder="0-25">
+                    <br>
+                     </div>
+
+<div id="output" >
+<h2> Sua mensagem aparecerá aqui!</h2>
+<span>Digite um texto que deseja criptografar ou descriptografar</span>
+</div>
+</div>
+<div class="buttons" >
+    <div class="container btn" >
+        <button onclick="criptografar()" class="btn criptografado">Criptografar</button>
+        <button onclick="descriptografar()" class="btn Descriptografar">Descriptografar</button>
+</div>
+</main>
+<footer class="rodape"> 
+    <div class="icons">
+        <a href="https://github.com/GawrOkayun"><ion-icon name="logo-github"></ion-icon></a>
+    </div>
+   <script>
+    let encryptBtn =  document.getElementById('encrypt-btn')
+    let eInput = document.getElementById('encryptedInput-1')
+    let pInput = document.getElementById('plainInput')
+    let inputs = [eInput.pInput]
+    let copyBtn = document.getElementById('copyToClipBoard')
+
+    inputs.forEach( input => {
+        input.oniput = () => {
+            input.value = input.value.toUpperCase()
+        }
+    })
+    function encrypt(){
+        let pInput = document.getElementById('plainInput-1').value;
+        let solved = ''
+        let shiftInput = parseInt(document.getElementById('shiftInput').value)
+
+        for(var i= 0; i< pInput.length; i++){
+            let ascii_num = pInput[i].charCodeAt()
+            let sum = ascii_num + shiftInput
+            sum >= 65 && sum <=90 ? solved += String.fromCharCode(sum) : sum > 90 ? solved += String.fromCharCode(65+ (sum & 91)) : solved += pInput[i]
+        }
+        eInput.value = solved
+}  
+  function copyText(){
+    eInput.select()
+    eInput.setSelectionRage(0,99999)
+    document.execCommand('copy')
+    alert('Texto Copiado: ${eInput.value}') 
+  }
+  copyBtn.addEventListener('click', copyText)
+encryptBtn.addEventListener('click', encrypt)
+  </script>
+</footer>
+<script src="base64.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
